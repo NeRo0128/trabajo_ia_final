@@ -94,6 +94,7 @@ fabric.properties
 # website: http://jupyter.org/
 config
 data
+notebooks
 
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
