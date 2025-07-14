@@ -1,0 +1,14 @@
+
+🧠 TOP Campos con mayor impacto clínico (ordenados por importancia)
+-------------------------------------------------------------------
+
+| Campo                      | ¿Por qué influye?                                                                                         | Tipo de atributo    | ¿Cómo lo usarías?                                |
+|---------------------------|------------------------------------------------------------------------------------------------------------|---------------------|--------------------------------------------------|
+| Antecedentes Patológicos  | Comorbilidades como HTA, DM, EPOC, cardiopatías → aumentan riesgo de complicaciones                       | Lista categórica    | Multi-hot encoding, agrupaciones clínicas        |
+| Tipo de tratamiento       | Ciertas técnicas (prótesis, no operado) implican mayor complejidad y recuperación más lenta               | Categórica nominal  | One-hot encoding / embeddings                    |
+| Clasificación             | Fracturas inestables (subcapital, subtrocantérica) = mayor dificultad quirúrgica                          | Categórica nominal  | One-hot encoding / ordinal                       |
+| Tiempo quirúrgico         | Tiempo prolongado suele indicar complicaciones intraoperatorias o fracturas difíciles                     | Categórica ordinal  | Convertir a minutos o categorías ordenadas       |
+| Edad                      | A mayor edad, peor recuperación funcional y mayor riesgo de sepsis/fallecimiento                          | Numérica continua   | Escalar (MinMaxScaler o StandardScaler)          |
+| Sexo                      | Mujeres (postmenopáusicas) tienen más osteoporosis; hombres más riesgo cardiovascular                    | Categórica binaria  | 0 = masculino, 1 = femenino                      |
+| Complicaciones (target)   | Tu variable objetivo para predicción o clasificación                                                      | Categórica binaria  | “sí” / “no” (o multiclase si consideras tipos)   |
+| Evolución a N meses       | Refleja el estado funcional del paciente a corto, medio y largo plazo                                     | Categórica ordinal  | Reescalado a “bien”/“regular”/“mal”              |
