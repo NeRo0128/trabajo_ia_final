@@ -92,6 +92,8 @@ fabric.properties
 ### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
+config
+data
 
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
