@@ -8,7 +8,34 @@ from sklearn.metrics import (
 )
 
 
-def train_mlp(data_dir, results_dir, results_file, model_params):
+def train_mlp(data_dir: str, results_dir: str, results_file: str, model_params):
+    """
+    Entrena múltiples configuraciones de un clasificador MLP (Perceptrón Multicapa)
+    utilizando datos previamente preprocesados y guardados en archivos .pkl.
+    Evalúa cada modelo usando varias métricas y guarda los resultados en un archivo CSV.
+
+    @Params:
+    -----------
+    data_dir : str
+        Ruta al directorio donde están almacenados los conjuntos X_train.pkl, X_test.pkl, y_train.pkl, y_test.pkl.
+    results_dir : str
+        Ruta al directorio donde se guardarán los resultados.
+    results_file : str
+        Nombre del archivo CSV que almacenará los resultados.
+    model_params : dict
+        Diccionario con los hiperparámetros del MLP, que incluye:
+            - hidden_layer_sizes: lista de tuplas indicando las capas ocultas.
+            - alpha: lista de valores para la regularización L2.
+            - learning_rate_init: lista de tasas de aprendizaje inicial.
+            - max_iter: lista de máximos de iteraciones.
+            - early_stopping: bool indicando si usar parada temprana.
+            - random_state: int para control de aleatoriedad.
+
+    Out:
+    -------
+    Archivo CSV con los resultados de las métricas para cada combinación de hiperparámetros.
+    """
+
     os.makedirs(results_dir, exist_ok=True)
     x_train = joblib.load(os.path.join(data_dir, 'X_train.pkl'))
     x_test = joblib.load(os.path.join(data_dir, 'X_test.pkl'))
@@ -65,7 +92,6 @@ def train_mlp(data_dir, results_dir, results_file, model_params):
 
     # Guardar resultados en un archivo CSV
     df_mlp = pd.DataFrame(results)
-    output_path:  str | bytes = os.path.join(results_dir, results_file)
+    output_path: str | bytes = os.path.join(results_dir, results_file)
     df_mlp.to_csv(output_path, index=False)
     print(f"MLP: resultados guardados en {output_path}")
-
