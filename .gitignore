@@ -1,3 +1,8 @@
+#Local
+config
+data
+notebooks
+reports/
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,pycharm+all,jetbrains+all,python,jupyternotebooks
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,pycharm+all,jetbrains+all,python,jupyternotebooks
 
@@ -92,9 +97,6 @@ fabric.properties
 ### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
-config
-data
-notebooks
 
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
